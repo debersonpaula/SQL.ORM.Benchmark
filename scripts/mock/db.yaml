@@ -1,0 +1,21 @@
+version: "3"
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server
+    container_name: Db.Benchmark.Sql.Server
+    ports:
+      - "1600:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "DBPass123"
+    volumes:
+      - "./queries/:/queries"
+    command:
+      - /bin/bash
+      - -c
+      - |
+        /opt/mssql/bin/sqlservr &
+        sleep 19
+        /opt/mssql-tools/bin/sqlcmd -U sa -P DBPass123 -l 30 -e -i /queries/DbSetup.sql
+        sleep infinity
+    
