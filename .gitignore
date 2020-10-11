@@ -41,3 +41,4 @@ bld/
 tmp/
 temp/
 tempfile.*
+jmeter.log
