@@ -7,6 +7,7 @@
       "launchUrl": "api/person/1",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Local"
       }
     }
   }
